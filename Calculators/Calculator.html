@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <script type="text/javascript" src="Operations.js"></script>
+        <link rel="stylesheet" href="Buttons.css"/>
+    </head>
+    <body>
+        <h1 style="margin: 10px;">Calculator</h1>
+        <h2 id = "display" >0</h2>
+        <p>
+            <input type="button" value = "1" onclick="number('1')"/>
+            <input type="button" value = "2" onclick="number('2')"/>
+            <input type="button" value = "3" onclick="number('3')"/>
+            <input type="button" value = "+" onclick="setOperation('+')"/>
+        </p>
+        <p>
+            <input type="button" value = "4" onclick="number('4')"/>
+            <input type="button" value = "5" onclick="number('5')"/>
+            <input type="button" value = "6" onclick="number('6')"/>
+            <input type="button" value = "-" onclick="setOperation('-')"/>
+        </p>
+        <p>
+            <input type="button" value = "7" onclick="number('7')"/>
+            <input type="button" value = "8" onclick="number('8')"/>
+            <input type="button" value = "9" onclick="number('9')"/>
+            <input type="button" value = "x" onclick="setOperation('x')"/>
+        </p>
+        <p>
+            <input type="button" value = "0" onclick="number('0')"/>
+            <input type="button" value = "CLR" onclick="setDefault()"/>
+            <input type="button" value = "=" onclick="calculate()"/>
+            <input type="button" value = "/" onclick="setOperation('/')"/>
+        </p>
+            
+            
+        
+    </body>
+</html>

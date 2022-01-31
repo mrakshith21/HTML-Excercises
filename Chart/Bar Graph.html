@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bar Graph</title>
+    <script src= 
+        "Chart.js"> 
+    </script> 
+</head>
+<body>
+    <canvas id="myChart" width="900" height="400" style="position: relative;"></canvas> 
+    <script type="text/javascript"> 
+        chart_labels = ["2016", "2017" , "2018" , "2019", "2020"];
+        odi_runs = [1200, 1100, 900, 1400, 800];
+        twenty_runs = [400, 500, 300, 600, 200];
+        test_runs = [1000, 1300, 900, 1200, 700];
+        background_colors = ['red', 'blue', 'green', 'yellow','orange'];
+        var bar = document.getElementById("myChart"); 
+        var myChart = new Chart(bar, { 
+            type: 'bar',              
+            data : {
+                labels : chart_labels,
+                datasets : [{
+                    fill : false,
+                    label : 'ODI',
+                    data : odi_runs,
+                    backgroundColor : 'red'
+                },
+                {
+                    label : 'T20',
+                    data : twenty_runs,
+                    backgroundColor : 'blue'
+                },
+                {
+                    label : 'Test',
+                    data : test_runs,
+                    backgroundColor : 'green'
+                }
+                ]
+            },
+            options: { 
+                title : {
+                    display : true,
+                    text : 'Virat Kohli Runs Across Formats'
+                },
+                scales: { 
+                        
+                        yAxes: [{ 
+                            ticks :{
+                                beginAtZero : true
+                            },
+                            scaleLabel : {
+                                display : true,
+                                labelString : 'Runs'
+                            }
+                        }],
+                        xAxes: [{ 
+                            scaleLabel : {
+                                display : true,
+                                labelString : 'Year'
+                            }
+                        }] 
+                    },
+                tooltips: {
+                    enabled: true
+                },
+                hover: {
+                    animationDuration: 1
+                },
+                animation: {
+                    duration: 1,
+                    onComplete: function () {
+                        var chartInstance = this.chart,
+                        ctx = chartInstance.ctx;
+                        ctx.textAlign = 'center';
+                        ctx.fillStyle = "rgba(0, 0, 0, 1)";
+                        ctx.textBaseline = 'bottom';
+
+                        this.data.datasets.forEach(function (dataset, i) {
+                            var meta = chartInstance.controller.getDatasetMeta(i);
+                            meta.data.forEach(function (bar, index) {
+                                var data = dataset.data[index];
+                                ctx.fillText(data, bar._model.x, bar._model.y - 5);
+
+                            });
+                        });
+                    }
+                }
+            }
+        }
+        ); 
+    
+    </script> 
+</body>
+</html>

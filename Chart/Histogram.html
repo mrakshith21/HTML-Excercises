@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histogram</title>
+    <script src="Chart.js"></script>
+</head>
+<body>
+    <canvas id="myChart" style="width: 300px; height: 300px;"></canvas> 
+    <script type="text/javascript"> 
+        var ctx = document.getElementById("myChart").getContext('2d');
+        var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ["Java", "Python", "C++", "Ruby", "Javascript"],
+            datasets: [{
+            label: 'Programming languages',
+            data: [15, 20, 25, 10, 30],
+            backgroundColor: 'rgba(255, 99, 132, 1)',
+            }]
+        },
+        options: {
+            tooltips: {
+                    enabled: true
+                },
+                hover: {
+                    animationDuration: 1
+                },
+                animation: {
+                    duration: 1,
+                    onComplete: function () {
+                        var chartInstance = this.chart,
+                        ctx = chartInstance.ctx;
+                        ctx.textAlign = 'center';
+                        ctx.fillStyle = "rgba(0, 0, 0, 1)";
+                        ctx.textBaseline = 'bottom';
+
+                        this.data.datasets.forEach(function (dataset, i) {
+                            var meta = chartInstance.controller.getDatasetMeta(i);
+                            meta.data.forEach(function (bar, index) {
+                                var data = dataset.data[index];
+                                ctx.fillText(data, bar._model.x, bar._model.y - 5);
+
+                            });
+                        });
+                    }
+                },
+            title : {
+                    display : true,
+                    text : 'Percentage of Users in different programming languages'
+            },
+            maintainAspectRatio : false,
+            scales: {
+            xAxes: [{
+                display: false,
+            }, 
+            {
+                scaleLabel : {
+                    display : true,
+                    labelString : 'Programming Language'
+                }
+            }],
+            yAxes: [{
+                ticks: {
+                beginAtZero:true
+                },
+                scaleLabel : {
+                    display: true,
+                    labelString : 'Percentage of Users'
+                }
+            }]
+            }
+        }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Line Graph</title>
+    <script src= 
+        "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"> 
+    </script> 
+     
+</head>
+<body>
+    <canvas id="myChart" width="900" height="400"></canvas> 
+    <script type="text/javascript">
+        var line = document.getElementById("myChart"); 
+        var myChart = new Chart(line, { 
+            type: 'line', 
+            data: { 
+                labels: ["2016", "2017" , "2018" , "2019", "2020"], 
+                datasets: [ 
+                { 
+                    label: 'ODI Runs', 
+                    data: [1200, 1100, 900, 1400, 800], 
+                    fill: false,
+                    borderColor: '#2196f3', // Add custom color border (Line)
+                    backgroundColor: '#2196f3', // Add custom color background (Points and Fill)
+                    borderWidth : 2
+                } 
+                ] 
+            },
+            options : {
+                
+                title : {
+                    display : true,
+                    text : 'Virat Kohli Runs in ODIs'
+                },
+                scales : {
+                    yAxes : [{
+                        ticks :{ 
+                            beginAtZero : true
+                        }
+                    }]
+                }
+            }
+        }); 
+    
+    </script>
+</body>
+</html>

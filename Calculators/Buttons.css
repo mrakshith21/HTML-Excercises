@@ -1,0 +1,25 @@
+p{
+    margin: 10px;
+    width: 330;
+}
+input{
+    float: left;
+    width: 80px;
+    height: 40px;
+
+}
+h2{
+    width: 320px;
+    height: 40px;
+    background-color: white;
+    margin: 10px;
+    text-align: right;
+    padding: 10px;
+    box-sizing: border-box;
+    box-shadow: 1em;
+    border: 2px solid black;
+
+}
+body{
+    background-color : lightblue;
+}

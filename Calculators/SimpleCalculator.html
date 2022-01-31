@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script>
+            function calculate(operator){
+                var m = parseInt(document.getElementById('op1').value);
+                var n = parseInt(document.getElementById('op2').value);
+                alert('Operand 1 : ' + m);
+                alert('Operand 2 : ' + n);
+                var result;
+                switch(operator){
+                    case '+' : result = m + n; break;
+                    case '-' : result = m - n; break;
+                    case '*' : result = m * n; break;
+                    case '/' : {
+                                    if (n == 0 )
+                                    {
+                                        alert('Division by zero is not allowed!');
+                                        return;
+                                    }
+                                }
+                                result = m / n; break;
+                    case '%' : result = m % n; break;
+                }
+                alert('Result = ' + result);
+                document.getElementById('result').innerHTML = 'Result = ' + String(result);
+            }
+        </script>
+        <link rel="stylesheet" href="SimpleCalcStyle.css" />
+
+    </head>
+    <body>
+        <h1>My Calculator</h1>
+        Operator 1 :
+        <input type="text" id = "op1"/>
+        <br><br>
+        Operator 2 :
+        <input type="text" id = "op2"/>
+        <br><br>
+        <input type="button"  value="Add" onclick="calculate('+')"/>
+        <input type="button"  value="Subtract" onclick="calculate('-')"/>
+        <input type="button"  value="Multiply" onclick="calculate('*')"/>
+        <input type="button"  value="Divide" onclick="calculate('/')"/>
+        <input type="button"  value="Modulo" onclick="calculate('%')"/>
+        <h1 id = "result" style="color: darkblue;"></h1>
+    </body>
+</html>

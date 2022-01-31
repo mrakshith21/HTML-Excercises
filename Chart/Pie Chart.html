@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pie Chart</title>
+    <script src="Chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0"></script>
+</head>
+<body>
+    <canvas id="myChart" width="900" height="400"></canvas>
+    <script type="text/javascript">
+        var pie = document.getElementById("myChart");
+        var chart = new Chart(pie, {
+            type : 'pie',
+            data: { 
+                labels: ["2016", "2017" , "2018" , "2019", "2020"], 
+                
+                datasets: [{                     
+                    data: [1200, 1100, 900, 1400, 800], 
+                    backgroundColor :['rgba(255, 99, 132, 1)', 
+                            'rgba(54, 162, 235, 1)', 
+                            'rgba(255, 206, 86, 1)', 
+                            'rgba(75, 192, 192, 1)', 
+                            'rgba(153, 102, 255, 1)', 
+                            'rgba(255, 159, 64, 1)' 
+                            ],
+                    borderWidth : 2
+                }] 
+            },
+            options : {
+                tooltips : {
+                    enabled : false
+                },
+                title : {
+                    display : true,
+                    text : 'Virat Kohli Runs in ODIs'
+                },
+                plugins : {
+                    datalabels : {
+                        labels : {
+                            value : {
+                                color : 'black',
+                                font : {
+                                    size : 20
+                                }
+                            }
+                        }
+                    }                   
+                }
+                
+            }
+        }
+
+        );
+        
+    </script>
+</body>
+</html>
